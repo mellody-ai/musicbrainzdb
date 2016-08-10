@@ -18,5 +18,6 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Println(context.Artist.Get("c06aa285-520e-40c0-b776-83d2c9e8a6d1"))
+	artist, _ := context.Artist.Get("17db8438-f314-46ea-98e3-8a116c38d504")
+	fmt.Println(artist.Name)
 }

@@ -34,13 +34,14 @@ var(
 3. Make context
 
 ```go
-context := mellody_musicbrainzdb.NewDBContext(CONNECTION_STRING)
+context, _ := mellody_musicbrainzdb.NewDBContext(CONNECTION_STRING)
 ```
 
 4. Do query
 
 ```go
-
+artist, _ := context.Artist.Get("17db8438-f314-46ea-98e3-8a116c38d504")
+fmt.Println(artist.Name)
 ```
 
 More amount of examples you can find [here](https://github.com/mellody-cloud/musicbrainzdb/tree/master/examples).
