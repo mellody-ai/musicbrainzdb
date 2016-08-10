@@ -22,7 +22,7 @@ go get gopkg.in/reform.v1
 2. Set Env variable *CONNECTION_STRING* to connect a DB.
 
 ```sh
-export CONNECTION_STRING = postgres://usr:!QAZxsw2@plar.global:5432/musicbrainz_db?sslmode=disable
+export CONNECTION_STRING = postgres://<user>:<password>@<host>:5432/musicbrainz_db?sslmode=disable
 ```
 
 ```go
