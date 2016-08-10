@@ -2,7 +2,7 @@ package mellody_musicbrainzdb
 
 import (
 	"gopkg.in/reform.v1"
-	"bitbucket.org/mellodycloud/mellody-toolchain/musicbrainz"
+	"bitbucket.org/mellodycloud/mellody-musicbrainzdb/model"
 )
 
 type ArtistContext struct {
@@ -13,24 +13,28 @@ func NewArtistContext(db *reform.DB) ArtistContext {
 	return ArtistContext{db}
 }
 
-func (ac ArtistContext) Get(gid string) (*musicbrainz.Artist, error) {
-	if entity, err := ac.DB.FindOneFrom(musicbrainz.ArtistTable, "gid", gid); err != nil {
+func (ac ArtistContext) Get(gid string) (*model.Artist, error) {
+	if entity, err := ac.DB.FindOneFrom(model.ArtistTable, "gid", gid); err != nil {
 		return nil, err
 	}else {
-		artist := entity.(*musicbrainz.Artist)
+		artist := entity.(*model.Artist)
 		return artist, nil
 	}
 }
 
-func (ac ArtistContext) FindByName(name string) ([]*musicbrainz.Artist, error) {
-	if entities, err := ac.DB.FindAllFrom(musicbrainz.ArtistTable, "name", name); err != nil {
+func (ac ArtistContext) FindByName(name string) ([]*model.Artist, error) {
+	if entities, err := ac.DB.FindAllFrom(model.ArtistTable, "name", name); err != nil {
 		return nil, err
 	}else {
-		artists := make([]*musicbrainz.Artist, len(entities))
+		artists := make([]*model.Artist, len(entities))
 		for i, entity := range entities {
-			artists[i] = entity.(*musicbrainz.Artist)
+			artists[i] = entity.(*model.Artist)
 		}
 
 		return artists, nil
 	}
 }
+
+//func (ac ArtistContext) Releases() ([]*model.Release) {
+//	ac.DB.
+//}

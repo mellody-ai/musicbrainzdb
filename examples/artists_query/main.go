@@ -18,6 +18,9 @@ func main() {
 		panic(err)
 	}
 
-	artist, _ := context.Artist.Get("17db8438-f314-46ea-98e3-8a116c38d504")
-	fmt.Println(artist.Name)
+	artist, err := context.Artist.Get("17db8438-f314-46ea-98e3-8a116c38d504")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("%v (%v)", artist.Name, artist.ID)
 }

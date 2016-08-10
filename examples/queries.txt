@@ -1,0 +1,12 @@
+// GET ALL RELEASE BY ARTIST
+Select r.id, r.gid, r."name" From artist
+INNER JOIN "release" as r ON r."artist_credit" = artist."id"
+Where artist."id" = 105605
+
+// GET ALL RECORDINGS BY ARTIST
+Select tr.id, tr.gid, artist.name as artist_name, tr."name" as track_name From artist
+INNER JOIN "recording" as tr ON tr."artist_credit" = artist."id"
+Where artist."id" = 105605
+
+// GET ALL RECORDINGS BY RELEASE
+
