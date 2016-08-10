@@ -18,9 +18,34 @@ go get gopkg.in/reform.v1
 
 ## How use ##
 
-Comming soon ...
+1. import "bitbucket.org/mellodycloud/mellody-musicbrainzdb"
+2. Set Env variable *CONNECTION_STRING* to connect a DB.
 
-## For developers ##
+```sh
+export CONNECTION_STRING = postgres://usr:!QAZxsw2@plar.global:5432/musicbrainz_db?sslmode=disable
+```
+
+```go
+var(
+	CONNECTION_STRING = os.Getenv("CONNECTION_STRING")
+)
+```
+
+3. Make context
+
+```go
+context := mellody_musicbrainzdb.NewDBContext(CONNECTION_STRING)
+```
+
+4. Do query
+
+```go
+
+```
+
+More amount of examples you can find [here](https://github.com/mellody-cloud/musicbrainzdb/tree/master/examples).
+
+## For contributors ##
 
 ### Database scheme ###
 
